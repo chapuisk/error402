@@ -10,8 +10,8 @@ description: |
 owner: Error4o2 a.k.a AlterodiO
 first_published: 2019 # if migrating another site, the year of your first publish
 email: alterodio@gmail.com
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+baseurl: "/error"
+url: "http://chapuisk.github.io/error402.com" # the base hostname & protocol for your site
 social:
   twitter: https://twitter.com/Error402
   #github: https://github.com/<username>
