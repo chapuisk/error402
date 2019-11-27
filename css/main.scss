@@ -1690,7 +1690,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		.moreleft {
 			@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));
 			@include vendor('transition-delay', '3.5s');
-			@include vendor('transform', 'translateY(0)');
+			@include vendor('transform', 'translateX(0)');
 			border: none;
 			color: inherit;
 			font-size: 0.8em;
@@ -1709,7 +1709,7 @@ $baseurl: '{{ site.baseurl }}/images';
 			z-index: 1;
 
 			&:after {
-				background-image: url('images/arrow.svg');
+				background-image: url('images/arrow_right.svg');
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: contain;
@@ -1793,6 +1793,10 @@ $baseurl: '{{ site.baseurl }}/images';
 			.more {
 				display: none;
 			}
+
+			.moreleft {
+				display: none;
+			}
 		}
 	}
 
@@ -1815,6 +1819,16 @@ $baseurl: '{{ site.baseurl }}/images';
 			&:after {
 				opacity: 1;
 			}
+
+			.moreleft {
+				@include vendor('transform', 'translateX(8.5em)');
+				opacity: 0;
+			}
+
+			&:after {
+				opacity: 1;
+			}
+
 		}
 	}
 

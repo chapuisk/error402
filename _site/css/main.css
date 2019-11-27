@@ -2617,10 +2617,10 @@ body.is-menu-visible #menu {
     -webkit-transition-delay: 3.5s;
     -ms-transition-delay: 3.5s;
     transition-delay: 3.5s;
-    -moz-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
     border: none;
     color: inherit;
     font-size: 0.8em;
@@ -2637,7 +2637,7 @@ body.is-menu-visible #menu {
     width: 12em;
     z-index: 1; }
     #banner .moreleft:after {
-      background-image: url("images/arrow.svg");
+      background-image: url("images/arrow_right.svg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -2723,6 +2723,8 @@ body.is-menu-visible #menu {
       #banner br {
         display: none; }
       #banner .more {
+        display: none; }
+      #banner .moreleft {
         display: none; } }
 
 body.is-loading #banner h2 {
@@ -2738,6 +2740,14 @@ body.is-loading #banner .more {
   -webkit-transform: translateY(8.5em);
   -ms-transform: translateY(8.5em);
   transform: translateY(8.5em);
+  opacity: 0; }
+body.is-loading #banner:after {
+  opacity: 1; }
+body.is-loading #banner .moreleft {
+  -moz-transform: translateX(8.5em);
+  -webkit-transform: translateX(8.5em);
+  -ms-transform: translateX(8.5em);
+  transform: translateX(8.5em);
   opacity: 0; }
 body.is-loading #banner:after {
   opacity: 1; }
