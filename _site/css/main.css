@@ -1416,12 +1416,43 @@ input[type="radio"] + label:before {
   color: rgba(255, 255, 255, 0.5) !important;
   opacity: 1.0; }
 
+/* Flex containre */
+flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px; }
+
+.column {
+  flex: 20%;
+  max-width: 20%;
+  padding: 0 4px; }
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle; }
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%; } }
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%; } }
 /* Box */
 .box {
   border-radius: 3px;
   border: solid 2px #fff;
   margin-bottom: 2em;
-  padding: 1.5em; }
+  padding: 1.5em;
+  display: flex; }
   .box > :last-child,
   .box > :last-child > :last-child,
   .box > :last-child > :last-child > :last-child {
@@ -1499,7 +1530,9 @@ input[type="radio"] + label:before {
   .image.fit {
     display: block;
     margin: 0 0 2em 0;
-    width: 100%; }
+    height: 100%;
+    width: 100%;
+    overflow: hidden; }
     .image.fit img {
       width: 100%; }
 
@@ -2254,7 +2287,8 @@ button,
       .wrapper.style3 .features li {
         border-top-color: rgba(0, 0, 0, 0.125); } }
   .wrapper.style4 {
-    margin-left: 25%;
+    text-align: center;
+    margin-left: auto;
     background-color: transparent; }
   .wrapper.style5 {
     background-color: #ffffff;
@@ -2344,7 +2378,16 @@ button,
       .wrapper.style5 .features li {
         border-top-color: #dfdfdf; } }
   .wrapper.styleError {
-    background-image: url("../../images/banner_error.png"); }
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner_error.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner_error.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner_error.jpg");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner_error.jpg");
+    border: 5px solid #000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    margin-left: auto; }
   @media screen and (max-width: 980px) {
     .wrapper {
       padding: 4em 3em 2em 3em ; } }
@@ -2758,14 +2801,15 @@ body.is-loading #banner:after {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  max-width: 45em; }
+  max-width: 45em;
+  margin: auto; }
   #cta .inner header {
     -moz-order: 1;
     -webkit-order: 1;
     -ms-order: 1;
     order: 1;
-    padding-right: 3em;
-    width: 70%; }
+    width: 70%;
+    text-align: center; }
     #cta .inner header p {
       color: inherit; }
   #cta .inner .actions {
@@ -2791,42 +2835,48 @@ body.is-loading #banner:after {
       max-width: none; } }
 
 /* Main */
-#main > header {
-  padding: 12em 0 10em 0 ;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
-  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center; }
-  #main > header h2 {
-    font-size: 1.75em;
-    margin: 0 0 0.5em 0; }
-  #main > header p {
-    color: inherit;
-    letter-spacing: 0.225em;
-    text-transform: uppercase;
-    top: 0; }
-    #main > header p a {
-      color: inherit; }
-  @media screen and (max-width: 1680px) {
-    #main > header {
-      padding: 10em 0 8em 0 ; } }
-  @media screen and (max-width: 1280px) {
-    #main > header {
-      padding: 8em 3em 6em 3em ; } }
-  @media screen and (max-width: 980px) {
-    #main > header {
-      padding: 10em 3em 8em 3em ; } }
-  @media screen and (max-width: 736px) {
-    #main > header {
-      padding: 5em 3em 3em 3em ; }
-      #main > header h2 {
-        font-size: 1.25em;
-        margin: 0 0 1em 0; } }
+#main {
+  /*
+  > section {
+  	background: transparent;
+  }
+  */ }
+  #main > header {
+    padding: 12em 0 10em 0 ;
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/error402/images/banner.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center; }
+    #main > header h2 {
+      font-size: 1.75em;
+      margin: 0 0 0.5em 0; }
+    #main > header p {
+      color: inherit;
+      letter-spacing: 0.225em;
+      text-transform: uppercase;
+      top: 0; }
+      #main > header p a {
+        color: inherit; }
+    @media screen and (max-width: 1680px) {
+      #main > header {
+        padding: 10em 0 8em 0 ; } }
+    @media screen and (max-width: 1280px) {
+      #main > header {
+        padding: 8em 3em 6em 3em ; } }
+    @media screen and (max-width: 980px) {
+      #main > header {
+        padding: 10em 3em 8em 3em ; } }
+    @media screen and (max-width: 736px) {
+      #main > header {
+        padding: 5em 3em 3em 3em ; }
+        #main > header h2 {
+          font-size: 1.25em;
+          margin: 0 0 1em 0; } }
 
 body.is-mobile #main > header {
   background-attachment: scroll; }

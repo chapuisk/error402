@@ -431,6 +431,47 @@ $baseurl: '{{ site.baseurl }}/images';
 		opacity: 1.0;
 	}
 
+/* Flex containre */
+
+	flex-container {
+  	display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+	}
+
+	.row {
+	  display: flex;
+	  flex-wrap: wrap;
+	  padding: 0 4px;
+	}
+
+	.column {
+	  flex: 20%;
+	  max-width: 20%;
+	  padding: 0 4px;
+	}
+
+	.column img {
+	  margin-top: 8px;
+	  vertical-align: middle;
+	}
+
+	/* Responsive layout - makes a two column-layout instead of four columns */
+	@media (max-width: 800px) {
+	  .column {
+	    flex: 50%;
+	    max-width: 50%;
+	  }
+	}
+
+	/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+	@media (max-width: 600px) {
+	  .column {
+	    flex: 100%;
+	    max-width: 100%;
+	  }
+	}
+
 /* Box */
 
 	.box {
@@ -438,6 +479,8 @@ $baseurl: '{{ site.baseurl }}/images';
 		border: solid 2px _palette(border);
 		margin-bottom: _size(element-margin);
 		padding: 1.5em;
+		display:flex;
+		//flex: 0.5;
 
 		> :last-child,
 		> :last-child > :last-child,
@@ -535,7 +578,9 @@ $baseurl: '{{ site.baseurl }}/images';
 		&.fit {
 			display: block;
 			margin: 0 0 _size(element-margin) 0;
+			height: 100%;
 			width: 100%;
+			overflow: hidden;
 
 			img {
 				width: 100%;
@@ -1403,7 +1448,8 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		&.style4 {
-			margin-left: 25%;
+			text-align: center;
+			margin-left: auto;
 			background-color: transparent;
 		}
 
@@ -1412,7 +1458,13 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		&.styleError {
-			background-image: url("../../images/banner_error.png");
+			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner_error.jpg")'));
+			border: 5px solid #000;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			text-align: center;
+			margin-left: auto;
 		}
 
 		@include breakpoint(medium) {
@@ -1838,12 +1890,13 @@ $baseurl: '{{ site.baseurl }}/images';
 		.inner {
 			@include vendor('display', 'flex');
 			max-width: 45em;
+			margin:auto;
 
 			header {
 				@include vendor('order', '1');
-				padding-right: 3em;
+				//padding-right: 3em;
 				width: 70%;
-
+				text-align: center;
 				p {
 					color: inherit;
 				}
@@ -1928,6 +1981,13 @@ $baseurl: '{{ site.baseurl }}/images';
 				}
 			}
 		}
+
+		/*
+		> section {
+			background: transparent;
+		}
+		*/
+
 	}
 
 	body.is-mobile {
