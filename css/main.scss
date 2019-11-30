@@ -8,7 +8,6 @@ $baseurl: '{{ site.baseurl }}/images';
 @import 'libs/functions';
 @import 'libs/mixins';
 @import 'font-awesome.min.css';
-//@import 'portofolio/portofolio';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic');
 
 	@import 'libs/skel';
@@ -446,23 +445,41 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	.column {
-	  flex: 20%;
-	  max-width: 20%;
+	  flex: 25%;
+	  max-width: 25%;
 	  padding: 0 4px;
-
-
-			img {
-			  margin-top: 8px;
-			  vertical-align: middle;
-				transition: all 2s;
-			}
-
-			img:hover {
-			  transform: scale (1.1);
-			}
-
 	}
 
+	/*
+	.column img {
+	  margin-top: 8px;
+	  vertical-align: middle;
+	}
+	*/
+
+	.colmuned_img {
+		margin-top: 8px;
+	  vertical-align: middle;
+	}
+
+	.row::after {
+	  content: "";
+	  clear: both;
+	  display: table;
+	}
+
+	.hover-img {
+	  display:none;
+	  position:absolute;
+	  left:0;
+	  top:0;
+	  width:100%;
+	  height:100%;
+	}
+
+	.colmuned_img:hover img + img{
+	  display:block;
+	}
 
 	/*
 
