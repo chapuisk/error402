@@ -1522,6 +1522,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		&.style5 {
 			@include wrapper(accent7);
+			opacity: 0.5;
 		}
 
 		&.styleError {
