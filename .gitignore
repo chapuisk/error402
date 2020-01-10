@@ -1,6 +1,10 @@
 .DS_Store
 *~
 
+##Jekyll site
+
+_site/
+
 ## sass
 
 .sass-cache
